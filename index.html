@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muthu S S | DevOps & Cloud Engineer</title>
+<meta name="description" content="Muthu S S - DevOps and AWS Cloud Engineer specializing in infrastructure automation, CI/CD, containers, Kubernetes, and monitoring.">
+<meta property="og:title" content="Muthu S S | DevOps & Cloud Engineer">
+<meta property="og:description" content="Building scalable cloud infrastructure. Automating everything. Keeping systems reliable.">
+<meta name="theme-color" content="#0a0a0a">
+<style>
+/* ============ RESET & VARIABLES ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;
+  --bg-2:#07120c;
+  --glass:rgba(255,255,255,.035);
+  --glass-border:rgba(255,255,255,.08);
+  --text:#f5f5f5;
+  --muted:#9a9a9a;
+  --green:#22c55e;
+  --deep-green:#166534;
+  --accent:#4ade80;
+  --grad:linear-gradient(135deg,#22c55e,#166534);
+  --radius:16px;
+  --max:1180px;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+.container{width:min(var(--max),92%);margin-inline:auto}
+section{padding:110px 0;position:relative}
+h1,h2,h3{line-height:1.2;font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:14px}
+.eyebrow{font-family:var(--mono);font-size:.8rem;color:var(--accent);letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:12px}
+.section-sub{color:var(--muted);max-width:620px;margin-bottom:50px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ============ BACKGROUND ============ */
+.bg-fx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  background:radial-gradient(1200px 700px at 85% -10%,rgba(34,197,94,.12),transparent 60%),
+             radial-gradient(900px 600px at -10% 20%,rgba(22,101,52,.2),transparent 60%),
+             var(--bg)}
+.bg-grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(34,197,94,.05) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(34,197,94,.05) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;animation:float 18s ease-in-out infinite}
+.orb.a{width:380px;height:380px;background:#22c55e;top:8%;left:-80px}
+.orb.b{width:420px;height:420px;background:#166534;bottom:5%;right:-120px;animation-delay:-6s}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
+
+/* ============ GLASS & CARDS ============ */
+.glass{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-radius:var(--radius);
+}
+.card{
+  position:relative;padding:28px;transition:transform .35s ease,border-color .35s,box-shadow .35s;
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(34,197,94,.45);
+  box-shadow:0 0 0 1px rgba(34,197,94,.2),0 20px 50px -15px rgba(22,101,52,.5)}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 24px;border-radius:999px;font-weight:600;font-size:.95rem;
+  border:1px solid transparent;cursor:pointer;transition:all .3s ease;
+  font-family:inherit;background:none;color:var(--text);
+}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 30px -10px rgba(34,197,94,.55)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px -8px rgba(34,197,94,.7)}
+.btn-ghost{border-color:var(--glass-border);background:var(--glass);backdrop-filter:blur(10px)}
+.btn-ghost:hover{border-color:var(--green);color:var(--accent);transform:translateY(-3px)}
+.icon-btn{
+  width:44px;height:44px;display:inline-grid;place-items:center;border-radius:12px;
+  border:1px solid var(--glass-border);background:var(--glass);transition:all .3s;color:var(--text);
+}
+.icon-btn:hover{border-color:var(--green);color:var(--accent);transform:translateY(-3px);box-shadow:0 0 20px rgba(34,197,94,.35)}
+.icon-btn svg{width:20px;height:20px;fill:currentColor}
+
+/* ============ NAVIGATION ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:16px 0;transition:all .4s ease;
+}
+.nav.scrolled{background:rgba(10,10,10,.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--glass-border);padding:12px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.nav-links a{font-size:.92rem;color:var(--muted);position:relative;transition:color .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--grad);transition:width .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-resume{padding:9px 18px;font-size:.88rem}
+.menu-toggle{display:none;background:none;border:none;color:var(--text);cursor:pointer;width:40px;height:40px}
+.menu-toggle span{display:block;width:24px;height:2px;background:currentColor;margin:6px auto;transition:.3s}
+
+/* ============ HERO ============ */
+.hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;
+  font-size:.85rem;color:var(--muted);margin-bottom:24px}
+.pulse{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.7);animation:pulse 2s infinite}
+@keyframes pulse{to{box-shadow:0 0 0 12px rgba(34,197,94,0)}}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);margin-bottom:14px}
+.hero-role{font-family:var(--mono);color:var(--accent);font-size:clamp(.95rem,2vw,1.1rem);margin-bottom:22px}
+.hero-headline{font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:600;margin-bottom:18px;max-width:640px}
+.hero-intro{color:var(--muted);max-width:580px;margin-bottom:34px;font-size:1.02rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+.socials{display:flex;gap:12px;flex-wrap:wrap}
+.hero-visual{position:relative;aspect-ratio:1;width:100%;max-width:480px;justify-self:center}
+.hero-visual svg{width:100%;height:100%}
+.node-line{stroke-dasharray:6 8;animation:dash 6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-140}}
+.node{animation:nodePulse 3s ease-in-out infinite}
+.node:nth-child(2n){animation-delay:-1.5s}
+@keyframes nodePulse{0%,100%{opacity:.5}50%{opacity:1}}
+.cloud-float{animation:float 8s ease-in-out infinite}
+.spin-slow{transform-origin:center;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.75rem;
+  font-family:var(--mono);letter-spacing:.2em;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-cue::after{content:"";width:1px;height:40px;background:linear-gradient(var(--green),transparent);animation:cue 2s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ============ ABOUT ============ */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.about-text p{color:var(--muted);margin-bottom:18px}
+.about-text strong{color:var(--text)}
+.focus-list{display:grid;gap:14px}
+.focus-item{display:flex;gap:16px;align-items:flex-start;padding:20px 22px}
+.focus-icon{flex:0 0 42px;height:42px;border-radius:12px;background:var(--grad);display:grid;place-items:center;font-size:1.1rem}
+.focus-item h3{font-size:1rem;margin-bottom:4px}
+.focus-item p{color:var(--muted);font-size:.92rem}
+
+/* ============ SKILLS ============ */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.skill-cat h3{font-size:1.05rem;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.skill-cat h3::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--grad)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:10px;
+  font-size:.88rem;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);
+  transition:all .3s;cursor:default;
+}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.chip:hover{background:rgba(22,101,52,.25);border-color:var(--deep-green);transform:translateY(-2px)}
+.chip.learning i{background:var(--deep-green);border:1px solid var(--accent)}
+.chip.learning{opacity:.85;border-style:dashed}
+
+/* ============ EXPERIENCE TIMELINE ============ */
+.timeline{position:relative;max-width:860px;margin-inline:auto;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;
+  background:linear-gradient(var(--green),var(--deep-green),transparent);border-radius:2px}
+.tl-item{position:relative;margin-bottom:34px;padding:28px}
+.tl-item::before{content:"";position:absolute;left:-34px;top:36px;width:16px;height:16px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--green);box-shadow:0 0 14px var(--green)}
+.tl-item.current::before{background:var(--green)}
+.tl-meta{font-family:var(--mono);font-size:.82rem;color:var(--accent);margin-bottom:8px}
+.tl-item h3{font-size:1.2rem;margin-bottom:4px}
+.tl-company{color:var(--muted);font-weight:600;margin-bottom:14px;display:block}
+.tl-item h4{font-size:.8rem;font-family:var(--mono);color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin:16px 0 8px}
+.tl-item ul{list-style:none;color:var(--muted);font-size:.93rem}
+.tl-item li{position:relative;padding-left:20px;margin-bottom:8px}
+.tl-item li::before{content:"▹";position:absolute;left:0;color:var(--green)}
+.placeholder{color:#f5b971;font-style:italic;background:rgba(245,185,113,.08);padding:1px 6px;border-radius:6px;font-size:.9em}
+
+/* ============ PROJECTS ============ */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px}
+.project{display:flex;flex-direction:column;padding:0;overflow:hidden}
+.project-visual{height:170px;position:relative;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(22,101,52,.3));border-bottom:1px solid var(--glass-border)}
+.project-visual svg{width:70%;height:70%;opacity:.9}
+.project-body{padding:24px;display:flex;flex-direction:column;flex:1}
+.project-num{font-family:var(--mono);font-size:.78rem;color:var(--accent);margin-bottom:6px}
+.project h3{font-size:1.15rem;margin-bottom:10px}
+.project p{color:var(--muted);font-size:.93rem;margin-bottom:18px;flex:1}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.badge{font-family:var(--mono);font-size:.72rem;padding:4px 10px;border-radius:6px;
+  background:var(--glass);border:1px solid var(--glass-border);color:var(--muted)}
+.project-links{display:flex;gap:10px}
+.project-links .btn{padding:9px 16px;font-size:.84rem}
+
+/* ============ CERTIFICATIONS ============ */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.cert{padding:26px;display:flex;flex-direction:column;gap:10px}
+.cert-badge{width:52px;height:52px;border-radius:14px;background:var(--grad);display:grid;place-items:center;font-size:1.3rem;margin-bottom:6px}
+.cert h3{font-size:1.05rem}
+.cert .meta{color:var(--muted);font-size:.9rem}
+.cert a{color:var(--accent);font-size:.9rem;margin-top:auto;font-weight:600}
+.cert a:hover{text-decoration:underline}
+
+/* ============ RESUME ============ */
+.resume-box{padding:50px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;
+  background:linear-gradient(135deg,rgba(34,197,94,.08),rgba(22,101,52,.14))}
+.resume-box p{color:var(--muted);margin-bottom:12px}
+.resume-actions{display:grid;gap:14px}
+.resume-actions .btn{justify-content:center}
+.resume-note{font-size:.82rem;color:var(--muted);margin-top:6px}
+.resume-note code{color:var(--accent)}
+
+/* ============ CONTACT ============ */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+.contact-info{display:grid;gap:16px;align-content:start}
+.info-row{display:flex;align-items:center;gap:16px;padding:18px 22px}
+.info-row .icon-btn{flex:0 0 46px;width:46px;height:46px}
+.info-row small{display:block;color:var(--muted);font-size:.8rem}
+.info-row a:hover{color:var(--accent)}
+.form{padding:34px;display:grid;gap:18px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-size:.85rem;color:var(--muted)}
+.field input,.field textarea{
+  background:rgba(10,10,10,.7);border:1px solid var(--glass-border);border-radius:12px;
+  padding:13px 16px;color:var(--text);font:inherit;outline:none;transition:all .3s;
+}
+.field input:focus,.field textarea:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(34,197,94,.15)}
+.field textarea{resize:vertical;min-height:130px}
+.form-status{font-size:.9rem;color:var(--muted);min-height:1.2em}
+
+/* ============ FOOTER ============ */
+footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted);font-size:.88rem}
+.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+.to-top{position:fixed;right:24px;bottom:24px;z-index:90;opacity:0;pointer-events:none;transform:translateY(20px);transition:all .4s}
+.to-top.show{opacity:1;pointer-events:auto;transform:none}
+
+/* ============ REVEAL ANIMATION ============ */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .hero-grid,.about-grid,.contact-grid,.resume-box{grid-template-columns:1fr}
+  .hero-visual{max-width:380px;order:-1}
+  section{padding:85px 0}
+}
+@media (max-width:820px){
+  .menu-toggle{display:block}
+  .nav-links{position:fixed;inset:0 0 auto 0;top:70px;flex-direction:column;gap:0;
+    background:rgba(10,10,10,.97);backdrop-filter:blur(16px);padding:20px 0;
+    transform:translateY(-120%);transition:transform .4s ease;border-bottom:1px solid var(--glass-border)}
+  .nav-links.open{transform:none}
+  .nav-links li{width:100%;text-align:center}
+  .nav-links a{display:block;padding:14px}
+  .nav-links a::after{display:none}
+  .nav-resume{display:none}
+  .menu-toggle.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .resume-box{padding:30px}
+  .timeline{padding-left:26px}
+  .timeline::before{left:4px}
+  .tl-item::before{left:-26px}
+}
+@media (max-width:560px){
+  .field-row{grid-template-columns:1fr}
+  .hero{padding-top:120px}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .form{padding:24px}
+  .card{padding:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">MSS<span>.</span>cloud</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="file:///D:/OneDrive%20-%20REDINGTON/Documents/portfolio/resume.pdf" download class="btn btn-primary nav-resume">Download Resume</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-tag glass reveal"><span class="pulse"></span> Open to DevOps & Cloud opportunities</div>
+      <h1 class="reveal">Muthu <span class="grad-text">S S</span></h1>
+      <p class="hero-role reveal reveal-d1">DevOps Engineer | AWS Cloud Engineer | Infrastructure Automation</p>
+      <p class="hero-headline reveal reveal-d1">Building Scalable Cloud Infrastructure. <span class="grad-text">Automating Everything.</span> Keeping Systems Reliable.</p>
+      <p class="hero-intro reveal reveal-d2">I'm a DevOps and Cloud Engineer passionate about cloud infrastructure, automation, CI/CD pipelines, containerization, monitoring, and building reliable production environments.</p>
+      <div class="hero-ctas reveal reveal-d2">
+        <a href="/resume.pdf" download class="btn btn-primary">Download My Resume</a>
+        <a href="#projects" class="btn btn-ghost">View My Projects</a>
+      </div>
+      <div class="socials reveal reveal-d3">
+        <a href="https://www.linkedin.com/in/muthu-s-s-01205b2b4" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6V21h-4z"/></svg>
+        </a>
+        <a href="tel:+919489735924" class="icon-btn" aria-label="Phone" title="Phone">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+        </a>
+        <a href="mailto:muthushanmugampillai@gmail.com" class="icon-btn" aria-label="Email" title="Email">
+          <svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.5L20 7H4l8 5.5z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Animated cloud / network illustration -->
+    <div class="hero-visual reveal reveal-d2" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#166534"/>
+          </linearGradient>
+          <radialGradient id="glow">
+            <stop offset="0" stop-color="#22c55e" stop-opacity=".3"/><stop offset="1" stop-color="#22c55e" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="200" cy="200" r="180" fill="url(#glow)"/>
+        <g class="spin-slow" fill="none" stroke="rgba(34,197,94,.25)" stroke-width="1">
+          <circle cx="200" cy="200" r="150" stroke-dasharray="4 10"/>
+          <circle cx="200" cy="200" r="110" stroke-dasharray="2 8"/>
+        </g>
+        <g stroke="url(#g1)" stroke-width="1.5" class="node-line" fill="none" opacity=".7">
+          <line x1="200" y1="200" x2="90" y2="110"/>
+          <line x1="200" y1="200" x2="320" y2="120"/>
+          <line x1="200" y1="200" x2="330" y2="280"/>
+          <line x1="200" y1="200" x2="100" y2="290"/>
+          <line x1="200" y1="200" x2="200" y2="60"/>
+        </g>
+        <g fill="#22c55e">
+          <circle class="node" cx="90" cy="110" r="6"/>
+          <circle class="node" cx="320" cy="120" r="6"/>
+          <circle class="node" cx="330" cy="280" r="6"/>
+          <circle class="node" cx="100" cy="290" r="6"/>
+          <circle class="node" cx="200" cy="60" r="6"/>
+        </g>
+        <g class="cloud-float">
+          <rect x="140" y="170" width="120" height="60" rx="30" fill="rgba(10,10,10,.95)" stroke="url(#g1)" stroke-width="2"/>
+          <circle cx="170" cy="170" r="24" fill="rgba(10,10,10,.95)" stroke="url(#g1)" stroke-width="2"/>
+          <circle cx="215" cy="160" r="30" fill="rgba(10,10,10,.95)" stroke="url(#g1)" stroke-width="2"/>
+          <text x="200" y="208" text-anchor="middle" fill="#f5f5f5" font-family="monospace" font-size="14" font-weight="700">AWS</text>
+        </g>
+        <g font-family="monospace" font-size="11" fill="#9a9a9a">
+          <rect x="40" y="60" width="90" height="28" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)"/>
+          <text x="55" y="78">Terraform</text>
+          <rect x="270" y="320" width="90" height="28" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)"/>
+          <text x="285" y="338">Kubernetes</text>
+          <rect x="260" y="40" width="90" height="28" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)"/>
+          <text x="275" y="58">CI/CD</text>
+          <rect x="30" y="310" width="90" height="28" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)"/>
+          <text x="45" y="328">Prometheus</text>
+        </g>
+        <circle r="4" fill="#4ade80">
+          <animateMotion dur="4s" repeatCount="indefinite" path="M200,200 L90,110"/>
+        </circle>
+        <circle r="4" fill="#166534">
+          <animateMotion dur="5s" repeatCount="indefinite" path="M200,200 L330,280"/>
+        </circle>
+        <circle r="4" fill="#4ade80">
+          <animateMotion dur="3.5s" repeatCount="indefinite" path="M200,200 L200,60"/>
+        </circle>
+      </svg>
+    </div>
+  </div>
+  <a href="#about" class="scroll-cue" aria-label="Scroll down">SCROLL</a>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container">
+    <span class="eyebrow reveal">01 — About</span>
+    <h2 class="reveal">Engineering reliable systems at <span class="grad-text">every layer</span></h2>
+    <div class="about-grid" style="margin-top:50px">
+      <div class="about-text reveal">
+        <p>I'm a DevOps and Cloud Engineer with hands-on experience in <strong>cloud infrastructure management</strong>, <strong>AWS services</strong>, and <strong>Linux server administration</strong>. My work centers on making delivery fast, repeatable, and safe.</p>
+        <p>I build and maintain <strong>CI/CD automation</strong>, containerized workloads with <strong>Docker and Kubernetes</strong>, and infrastructure defined as code with <strong>Terraform</strong>. I care about <strong>monitoring and observability</strong> because systems are only as reliable as our visibility into them.</p>
+        <p>I also handle <strong>production troubleshooting and support</strong>, where I focus on finding root causes, reducing repeat incidents, and documenting what I learn.</p>
+      </div>
+      <div class="focus-list">
+        <div class="glass card focus-item reveal reveal-d1">
+          <div class="focus-icon">☁️</div>
+          <div><h3>Cloud Infrastructure</h3><p>Managing AWS environments with EC2, VPC, IAM, ALB, and Auto Scaling for customer workloads.</p></div>
+        </div>
+        <div class="glass card focus-item reveal reveal-d2">
+          <div class="focus-icon">⚙️</div>
+          <div><h3>Automation & CI/CD</h3><p>Jenkins and Docker pipelines for microservices, with Helm-based deployments across environments.</p></div>
+        </div>
+        <div class="glass card focus-item reveal reveal-d3">
+          <div class="focus-icon">📊</div>
+          <div><h3>Observability</h3><p>Prometheus and Grafana dashboards, alerting rules, and EFK-based log analysis to catch issues early.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="container">
+    <span class="eyebrow reveal">02 — Skills</span>
+    <h2 class="reveal">Technical <span class="grad-text">toolkit</span></h2>
+    <p class="section-sub reveal">Tools I use day to day. Items marked as learning are areas I'm actively building experience in.</p>
+    <div class="skills-grid">
+      <div class="glass card skill-cat reveal">
+        <h3>Cloud Platforms</h3>
+        <div class="chips">
+          <span class="chip"><i></i>AWS</span>
+          <span class="chip learning"><i></i>Microsoft Azure (Learning)</span>
+          <span class="chip learning"><i></i>Google Cloud (Learning)</span>
+        </div>
+      </div>
+      <div class="glass card skill-cat reveal reveal-d1">
+        <h3>DevOps & CI/CD</h3>
+        <div class="chips">
+          <span class="chip"><i></i>Jenkins</span>
+          <span class="chip"><i></i>GitLab CI/CD</span>
+          <span class="chip"><i></i>AWS CodePipeline</span>
+          <span class="chip"><i></i>AWS CodeBuild</span>
+          <span class="chip"><i></i>Git</span>
+          <span class="chip"><i></i>Gerrit</span>
+        </div>
+      </div>
+      <div class="glass card skill-cat reveal reveal-d2">
+        <h3>Containers & Orchestration</h3>
+        <div class="chips">
+          <span class="chip"><i></i>Docker</span>
+          <span class="chip"><i></i>Kubernetes</span>
+          <span class="chip"><i></i>Helm</span>
+          <span class="chip"><i></i>Amazon EKS</span>
+        </div>
+      </div>
+      <div class="glass card skill-cat reveal">
+        <h3>Infrastructure as Code</h3>
+        <div class="chips">
+          <span class="chip"><i></i>Terraform</span>
+          <span class="chip"><i></i>Ansible</span>
+        </div>
+      </div>
+      <div class="glass card skill-cat reveal reveal-d1">
+        <h3>Monitoring & Logging</h3>
+        <div class="chips">
+          <span class="chip"><i></i>Prometheus</span>
+          <span class="chip"><i></i>Grafana</span>
+          <span class="chip"><i></i>EFK Stack</span>
+        </div>
+      </div>
+      <div class="glass card skill-cat reveal reveal-d2">
+        <h3>Operating Systems</h3>
+        <div class="chips">
+          <span class="chip"><i></i>Linux</span>
+          <span class="chip"><i></i>Ubuntu</span>
+          <span class="chip"><i></i>Amazon Linux</span>
+          <span class="chip"><i></i>Windows Server</span>
+        </div>
+      </div>
+      <div class="glass card skill-cat reveal" style="grid-column:1/-1">
+        <h3>AWS Services</h3>
+        <div class="chips">
+          <span class="chip"><i></i>EC2</span><span class="chip"><i></i>S3</span>
+          <span class="chip"><i></i>EBS</span><span class="chip"><i></i>IAM</span>
+          <span class="chip"><i></i>VPC</span><span class="chip"><i></i>ALB</span>
+          <span class="chip"><i></i>Auto Scaling</span><span class="chip"><i></i>RDS</span>
+          <span class="chip"><i></i>AWS Backup</span><span class="chip"><i></i>CloudWatch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="container">
+    <span class="eyebrow reveal">03 — Experience</span>
+    <h2 class="reveal">Professional <span class="grad-text">journey</span></h2>
+    <p class="section-sub reveal">Most recent first. Remaining placeholders are highlighted in amber.</p>
+    <div class="timeline">
+
+      <article class="glass tl-item current reveal">
+        <div class="tl-meta">Aug 2026 — Present · Bengaluru, Karnataka</div>
+        <h3>Engineer – Cloud Managed Services</h3>
+        <span class="tl-company">Redington India Limited</span>
+        <ul>
+          <li>Manage and support AWS cloud servers and services for customers, including EC2, EBS, S3, RDS, IAM, VPC, ALB, and Auto Scaling.</li>
+          <li>Create and configure EC2 servers, EBS volumes, snapshots, and AMIs.</li>
+          <li>Monitor servers and troubleshoot CPU, memory, disk, network, and connectivity issues.</li>
+          <li>Support AWS EKS and Kubernetes environments and resolve basic deployment issues.</li>
+          <li>Handle customer incidents, service requests, and changes within defined SLAs.</li>
+          <li>Manage AWS backups, snapshots, and storage, and check backup status when required.</li>
+          <li>Review AWS resource usage and cost estimates, and support cloud infrastructure requirements.</li>
+          <li>Support Linux servers with troubleshooting, disk management, user access, and service issues.</li>
+        </ul>
+      </article>
+
+      <article class="glass tl-item reveal reveal-d1">
+        <div class="tl-meta">May 2023 — July 2026 · Bengaluru, Karnataka</div>
+        <h3>DevOps Engineer</h3>
+        <span class="tl-company">Solvendo India Private Limited</span>
+
+        <h4>CI/CD & Deployment</h4>
+        <ul>
+          <li>Designed and implemented CI/CD pipelines for microservices using Jenkins, Docker, and Helm, reducing deployment time by 40%.</li>
+          <li>Managed daily deployments across Dev, QA, Staging, and Production, maintaining high availability and minimal downtime.</li>
+          <li>Led production deployments, coordinating with developers and stakeholders for smooth rollouts and fast issue resolution.</li>
+          <li>Migrated source code repositories, access controls, and pipelines from GitLab to Gerrit for better code review workflows.</li>
+        </ul>
+
+        <h4>Monitoring & Reliability</h4>
+        <ul>
+          <li>Configured Prometheus and Grafana dashboards for application health and system performance.</li>
+          <li>Established alerting rules for service downtime, high CPU usage, and memory exhaustion.</li>
+          <li>Monitored application logs in Kibana (EFK Stack) to detect errors and performance bottlenecks.</li>
+          <li>Performed root cause analysis on alerts and created runbooks for consistent incident resolution.</li>
+        </ul>
+
+        <h4>Infrastructure & Security</h4>
+        <ul>
+          <li>Migrated applications and infrastructure from AWS to a private cloud with minimal downtime.</li>
+          <li>Deployed HashiCorp Vault on Kubernetes with auto-unseal for secure secrets management across microservices.</li>
+          <li>Implemented Keycloak for centralized authentication and SSO using OAuth2 and OpenID Connect.</li>
+          <li>Integrated SonarQube into Jenkins CI pipelines for automated code quality and security scanning.</li>
+          <li>Provisioned AWS resources (EC2, S3, IAM, Security Groups) with Terraform, using remote state management.</li>
+          <li>Created and modified Terraform modules for EC2, VPC, Security Groups, and storage components.</li>
+          <li>Installed and configured JFrog Artifactory to manage build artifacts and CI/CD dependencies.</li>
+          <li>Deployed RabbitMQ on Ubuntu and integrated Redis with microservices to improve performance and reduce latency.</li>
+          <li>Worked with Ansible for server configuration, package installation, and routine operational automation.</li>
+        </ul>
+      </article>
+
+      <article class="glass tl-item reveal reveal-d2">
+        <div class="tl-meta">Jan 2023 — Aug 2023 · Kanyakumari, Tamil Nadu</div>
+        <h3>Junior DevOps Engineer</h3>
+        <span class="tl-company">Inthamocus Private Limited</span>
+        <ul>
+          <li>Built and maintained Jenkins CI/CD pipelines to support automated build and deployment processes.</li>
+          <li>Supported Docker containerization and participated in application deployments on Kubernetes clusters.</li>
+          <li>Helped integrate SonarQube for code quality checks and JFrog Artifactory for artifact management.</li>
+          <li>Monitored applications and infrastructure, troubleshooting issues to keep systems stable, and worked with development and QA teams on build and deployment activities.</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects">
+  <div class="container">
+    <span class="eyebrow reveal">04 — Projects</span>
+    <h2 class="reveal">Selected <span class="grad-text">work</span></h2>
+    <p class="section-sub reveal">Editable placeholders. Replace the title, description, technologies, and links with your real projects.</p>
+    <div class="projects-grid">
+
+      <article class="glass card project reveal">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 120"><rect x="10" y="40" width="50" height="40" rx="8" fill="none" stroke="#22c55e"/><rect x="140" y="40" width="50" height="40" rx="8" fill="none" stroke="#166534"/><path d="M60 60 H140" stroke="#4ade80" stroke-dasharray="4 4"/><text x="35" y="66" font-size="10" fill="#f5f5f5" text-anchor="middle">TF</text><text x="165" y="66" font-size="10" fill="#f5f5f5" text-anchor="middle">AWS</text></svg>
+        </div>
+        <div class="project-body">
+          <span class="project-num">PROJECT 01</span>
+          <h3>AWS Infrastructure Automation using Terraform</h3>
+          <p><span class="placeholder">Describe what you built, the scope, and the outcome.</span></p>
+          <div class="badges"><span class="badge">Terraform</span><span class="badge">AWS</span><span class="badge">IAM</span><span class="badge">VPC</span></div>
+          <div class="project-links">
+            <a href="#" class="btn btn-ghost">GitHub</a>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass card project reveal reveal-d1">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 120"><path d="M20 60 H60 M80 60 H120 M140 60 H180" stroke="#22c55e" stroke-width="2"/><rect x="55" y="45" width="30" height="30" rx="6" fill="none" stroke="#166534"/><rect x="115" y="45" width="30" height="30" rx="6" fill="none" stroke="#166534"/><text x="70" y="64" font-size="9" fill="#f5f5f5" text-anchor="middle">BUILD</text><text x="130" y="64" font-size="9" fill="#f5f5f5" text-anchor="middle">DEPLOY</text></svg>
+        </div>
+        <div class="project-body">
+          <span class="project-num">PROJECT 02</span>
+          <h3>CI/CD Pipeline Implementation using Jenkins</h3>
+          <p><span class="placeholder">Describe the pipeline stages, tooling, and results.</span></p>
+          <div class="badges"><span class="badge">Jenkins</span><span class="badge">Git</span><span class="badge">Docker</span></div>
+          <div class="project-links">
+            <a href="#" class="btn btn-ghost">GitHub</a>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass card project reveal">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 120"><circle cx="100" cy="60" r="34" fill="none" stroke="#22c55e" stroke-dasharray="6 6"/><circle cx="100" cy="60" r="8" fill="#166534"/><circle cx="60" cy="40" r="6" fill="#4ade80"/><circle cx="140" cy="40" r="6" fill="#4ade80"/><circle cx="100" cy="95" r="6" fill="#4ade80"/></svg>
+        </div>
+        <div class="project-body">
+          <span class="project-num">PROJECT 03</span>
+          <h3>Kubernetes Application Deployment using Docker and Helm</h3>
+          <p><span class="placeholder">Describe the containerized app, the Helm chart structure, and the deployment flow.</span></p>
+          <div class="badges"><span class="badge">Docker</span><span class="badge">Kubernetes</span><span class="badge">Helm</span></div>
+          <div class="project-links">
+            <a href="#" class="btn btn-ghost">GitHub</a>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass card project reveal reveal-d1">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 120"><rect x="80" y="10" width="40" height="22" rx="5" fill="none" stroke="#166534"/><rect x="30" y="85" width="40" height="22" rx="5" fill="none" stroke="#22c55e"/><rect x="130" y="85" width="40" height="22" rx="5" fill="none" stroke="#22c55e"/><path d="M100 32 V55 M100 55 L50 85 M100 55 L150 85" stroke="#4ade80" fill="none"/></svg>
+        </div>
+        <div class="project-body">
+          <span class="project-num">PROJECT 04</span>
+          <h3>AWS Highly Available Architecture using ALB and Auto Scaling</h3>
+          <p><span class="placeholder">Describe the multi-AZ design, scaling policies, and failover behavior.</span></p>
+          <div class="badges"><span class="badge">ALB</span><span class="badge">Auto Scaling</span><span class="badge">EC2</span><span class="badge">VPC</span></div>
+          <div class="project-links">
+            <a href="#" class="btn btn-ghost">GitHub</a>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass card project reveal">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 120"><polyline points="10,90 50,60 90,70 130,30 170,45" fill="none" stroke="#4ade80" stroke-width="2"/><rect x="10" y="10" width="180" height="100" rx="8" fill="none" stroke="rgba(255,255,255,.15)"/></svg>
+        </div>
+        <div class="project-body">
+          <span class="project-num">PROJECT 05</span>
+          <h3>Monitoring and Observability using Prometheus and Grafana</h3>
+          <p><span class="placeholder">Describe the exporters, dashboards, and alerting setup.</span></p>
+          <div class="badges"><span class="badge">Prometheus</span><span class="badge">Grafana</span><span class="badge">Alerting</span></div>
+          <div class="project-links">
+            <a href="#" class="btn btn-ghost">GitHub</a>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass card project reveal reveal-d1">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 120"><path d="M100 15 L165 40 V80 L100 105 L35 80 V40 Z" fill="none" stroke="#22c55e"/><path d="M100 15 V105 M35 40 L165 80 M165 40 L35 80" stroke="rgba(22,101,52,.8)"/></svg>
+        </div>
+        <div class="project-body">
+          <span class="project-num">PROJECT 06</span>
+          <h3>AWS Cloud Infrastructure Management</h3>
+          <p><span class="placeholder">Describe the environments managed, operational practices, and backup or security measures.</span></p>
+          <div class="badges"><span class="badge">AWS</span><span class="badge">CloudWatch</span><span class="badge">AWS Backup</span><span class="badge">IAM</span></div>
+          <div class="project-links">
+            <a href="#" class="btn btn-ghost">GitHub</a>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section id="certifications">
+  <div class="container">
+    <span class="eyebrow reveal">05 — Certifications</span>
+    <h2 class="reveal">Credentials & <span class="grad-text">learning</span></h2>
+    <p class="section-sub reveal">Add only completed certifications. Placeholders below remain until you provide verified details.</p>
+    <div class="cert-grid">
+      <article class="glass cert reveal">
+        <div class="cert-badge">🏅</div>
+        <h3><span class="placeholder">Certification Name</span></h3>
+        <div class="meta">Issuing organization: <span class="placeholder">Issuer</span></div>
+        <div class="meta">Completed: <span class="placeholder">Month Year</span></div>
+        <a href="#">Verify credential →</a>
+      </article>
+      <article class="glass cert reveal reveal-d1">
+        <div class="cert-badge">🏅</div>
+        <h3><span class="placeholder">Certification Name</span></h3>
+        <div class="meta">Issuing organization: <span class="placeholder">Issuer</span></div>
+        <div class="meta">Completed: <span class="placeholder">Month Year</span></div>
+        <a href="#">Verify credential →</a>
+      </article>
+      <article class="glass cert reveal reveal-d2">
+        <div class="cert-badge">🏅</div>
+        <h3><span class="placeholder">Certification Name</span></h3>
+        <div class="meta">Issuing organization: <span class="placeholder">Issuer</span></div>
+        <div class="meta">Completed: <span class="placeholder">Month Year</span></div>
+        <a href="#">Verify credential →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESUME ============ -->
+<section id="resume">
+  <div class="container">
+    <div class="glass resume-box reveal">
+      <div>
+        <span class="eyebrow">06 — Resume</span>
+        <h2>Get the full <span class="grad-text">picture</span></h2>
+        <p>View my resume in a new tab or download a PDF copy. No login required.</p>
+        <p class="resume-note">To update: replace <code>resume.pdf</code> in the site's root folder with your new file, keeping the same name. No other changes needed.</p>
+      </div>
+      <div class="resume-actions">
+        <a href="/resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">View Resume</a>
+        <a href="/resume.pdf" download class="btn btn-primary">Download PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container">
+    <span class="eyebrow reveal">07 — Contact</span>
+    <h2 class="reveal">Let's build something <span class="grad-text">reliable</span></h2>
+    <p class="section-sub reveal">Open to conversations about DevOps, cloud, and infrastructure roles.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="glass card info-row reveal">
+          <div class="icon-btn" aria-hidden="true">✉️</div>
+          <div><small>Email</small><a href="mailto:muthushanmugampillai@gmail.com">muthushanmugampillai@gmail.com</a></div>
+        </div>
+        <div class="glass card info-row reveal reveal-d1">
+          <div class="icon-btn" aria-hidden="true">📞</div>
+          <div><small>Phone</small><a href="tel:+919489735924">+91 94897 35924</a></div>
+        </div>
+        <div class="glass card info-row reveal reveal-d2">
+          <div class="icon-btn" aria-hidden="true">📍</div>
+          <div><small>Location</small>Kanyakumari, Tamil Nadu, India</div>
+        </div>
+        <div class="glass card info-row reveal reveal-d3">
+          <div class="icon-btn" aria-hidden="true">🔗</div>
+          <div><small>LinkedIn</small><a href="https://www.linkedin.com/in/muthu-s-s-01205b2b4" target="_blank" rel="noopener">linkedin.com/in/muthu-s-s-01205b2b4</a></div>
+        </div>
+      </div>
+
+      <!--
+        CONTACT FORM: This form needs a submission service to work.
+        Replace YOUR_FORM_ID with a Formspree (or Netlify Forms / similar) endpoint.
+        Example: https://formspree.io/f/abcd1234
+      -->
+      <form class="glass form reveal reveal-d1" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" required placeholder="What's this about?">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Your message..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="justify-self:start">Send Message</button>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Muthu S S.</span>
+    <span>Kanyakumari, Tamil Nadu, India</span>
+  </div>
+</footer>
+
+<button class="icon-btn to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Sticky nav shadow + back-to-top
+  const nav = document.getElementById('nav');
+  const toTop = document.getElementById('toTop');
+  const links = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+    toTop.classList.toggle('show', window.scrollY > 600);
+  }, { passive: true });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('main section[id]');
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => sectionObserver.observe(s));
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    menuToggle.classList.toggle('open', open);
+    menuToggle.setAttribute('aria-expanded', open);
+  });
+  links.forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.classList.remove('open');
+  }));
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Contact form feedback (requires a real endpoint in the action attribute)
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', async (e) => {
+    if (form.action.includes('YOUR_FORM_ID')) {
+      e.preventDefault();
+      status.textContent = 'Form not connected yet. Please email me directly.';
+      return;
+    }
+    e.preventDefault();
+    status.textContent = 'Sending...';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) { form.reset(); status.textContent = 'Thanks! Your message has been sent.'; }
+      else status.textContent = 'Something went wrong. Please try again.';
+    } catch {
+      status.textContent = 'Network error. Please try again.';
+    }
+  });
+</script>
+</body>
+</html>
