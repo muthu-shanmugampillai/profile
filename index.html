@@ -7,35 +7,28 @@
 <meta name="description" content="Muthu S S - DevOps and AWS Cloud Engineer specializing in infrastructure automation, CI/CD, containers, Kubernetes, and monitoring.">
 <meta property="og:title" content="Muthu S S | DevOps & Cloud Engineer">
 <meta property="og:description" content="Building scalable cloud infrastructure. Automating everything. Keeping systems reliable.">
+<meta property="og:image" content="images/profile.jpeg">
 <meta name="theme-color" content="#0a0a0a">
 <style>
 /* ============ RESET & VARIABLES ============ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0a0a0a;
-  --bg-2:#07120c;
   --glass:rgba(255,255,255,.035);
   --glass-border:rgba(255,255,255,.08);
   --text:#f5f5f5;
   --muted:#9a9a9a;
-  --green:#22c55e;
-  --deep-green:#166534;
-  --accent:#4ade80;
-  --grad:linear-gradient(135deg,#22c55e,#166534);
+  --green:#ffffff;
+  --deep-green:#9ca3af;
+  --accent:#e5e5e5;
+  --grad:linear-gradient(135deg,#ffffff,#9ca3af);
   --radius:16px;
   --max:1180px;
   --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{
-  font-family:var(--font);
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.65;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img,svg{max-width:100%;display:block}
 .container{width:min(var(--max),92%);margin-inline:auto}
@@ -48,59 +41,40 @@ h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:14px}
 
 /* ============ BACKGROUND ============ */
 .bg-fx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
-  background:radial-gradient(1200px 700px at 85% -10%,rgba(34,197,94,.12),transparent 60%),
-             radial-gradient(900px 600px at -10% 20%,rgba(22,101,52,.2),transparent 60%),
+  background:radial-gradient(1200px 700px at 85% -10%,rgba(255,255,255,.08),transparent 60%),
+             radial-gradient(900px 600px at -10% 20%,rgba(156,163,175,.12),transparent 60%),
              var(--bg)}
 .bg-grid{position:absolute;inset:0;
-  background-image:linear-gradient(rgba(34,197,94,.05) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(34,197,94,.05) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
   background-size:60px 60px;
   mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);
   -webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;animation:float 18s ease-in-out infinite}
-.orb.a{width:380px;height:380px;background:#22c55e;top:8%;left:-80px}
-.orb.b{width:420px;height:420px;background:#166534;bottom:5%;right:-120px;animation-delay:-6s}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.25;animation:float 18s ease-in-out infinite}
+.orb.a{width:380px;height:380px;background:#ffffff;top:8%;left:-80px}
+.orb.b{width:420px;height:420px;background:#6b7280;bottom:5%;right:-120px;animation-delay:-6s}
 @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
 
 /* ============ GLASS & CARDS ============ */
-.glass{
-  background:var(--glass);
-  border:1px solid var(--glass-border);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  border-radius:var(--radius);
-}
-.card{
-  position:relative;padding:28px;transition:transform .35s ease,border-color .35s,box-shadow .35s;
-}
-.card:hover{transform:translateY(-6px);border-color:rgba(34,197,94,.45);
-  box-shadow:0 0 0 1px rgba(34,197,94,.2),0 20px 50px -15px rgba(22,101,52,.5)}
+.glass{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:var(--radius)}
+.card{position:relative;padding:28px;transition:transform .35s ease,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.45);box-shadow:0 0 0 1px rgba(255,255,255,.2),0 20px 50px -15px rgba(255,255,255,.15)}
 
 /* ============ BUTTONS ============ */
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:13px 24px;border-radius:999px;font-weight:600;font-size:.95rem;
-  border:1px solid transparent;cursor:pointer;transition:all .3s ease;
-  font-family:inherit;background:none;color:var(--text);
-}
-.btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 30px -10px rgba(34,197,94,.55)}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px -8px rgba(34,197,94,.7)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:.95rem;
+  border:1px solid transparent;cursor:pointer;transition:all .3s ease;font-family:inherit;background:none;color:var(--text)}
+.btn-primary{background:var(--grad);color:#0a0a0a;box-shadow:0 10px 30px -10px rgba(255,255,255,.35)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px -8px rgba(255,255,255,.5)}
 .btn-ghost{border-color:var(--glass-border);background:var(--glass);backdrop-filter:blur(10px)}
 .btn-ghost:hover{border-color:var(--green);color:var(--accent);transform:translateY(-3px)}
-.icon-btn{
-  width:44px;height:44px;display:inline-grid;place-items:center;border-radius:12px;
-  border:1px solid var(--glass-border);background:var(--glass);transition:all .3s;color:var(--text);
-}
-.icon-btn:hover{border-color:var(--green);color:var(--accent);transform:translateY(-3px);box-shadow:0 0 20px rgba(34,197,94,.35)}
+.icon-btn{width:44px;height:44px;display:inline-grid;place-items:center;border-radius:12px;border:1px solid var(--glass-border);
+  background:var(--glass);transition:all .3s;color:var(--text)}
+.icon-btn:hover{border-color:var(--green);color:var(--accent);transform:translateY(-3px);box-shadow:0 0 20px rgba(255,255,255,.25)}
 .icon-btn svg{width:20px;height:20px;fill:currentColor}
 
 /* ============ NAVIGATION ============ */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:16px 0;transition:all .4s ease;
-}
-.nav.scrolled{background:rgba(10,10,10,.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--glass-border);padding:12px 0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .4s ease}
+.nav.scrolled{background:rgba(10,10,10,.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--glass-border);padding:12px 0}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
 .logo span{color:var(--green)}
@@ -117,26 +91,44 @@ h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:14px}
 /* ============ HERO ============ */
 .hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 90px}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
-.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;
-  font-size:.85rem;color:var(--muted);margin-bottom:24px}
-.pulse{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.7);animation:pulse 2s infinite}
-@keyframes pulse{to{box-shadow:0 0 0 12px rgba(34,197,94,0)}}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;font-size:.85rem;color:var(--muted);margin-bottom:24px}
+.pulse{width:9px;height:9px;border-radius:50%;background:#ffffff;box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:pulse 2s infinite}
+@keyframes pulse{to{box-shadow:0 0 0 12px rgba(255,255,255,0)}}
 .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);margin-bottom:14px}
 .hero-role{font-family:var(--mono);color:var(--accent);font-size:clamp(.95rem,2vw,1.1rem);margin-bottom:22px}
 .hero-headline{font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:600;margin-bottom:18px;max-width:640px}
 .hero-intro{color:var(--muted);max-width:580px;margin-bottom:34px;font-size:1.02rem}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
 .socials{display:flex;gap:12px;flex-wrap:wrap}
-.hero-visual{position:relative;aspect-ratio:1;width:100%;max-width:480px;justify-self:center}
-.hero-visual svg{width:100%;height:100%}
+
+/* Hero portrait */
+.hero-visual{position:relative;width:100%;max-width:440px;min-height:480px;justify-self:center;display:grid;place-items:center}
+.hero-visual > svg{position:absolute;inset:-10%;width:120%;height:120%;opacity:.28;z-index:0}
 .node-line{stroke-dasharray:6 8;animation:dash 6s linear infinite}
 @keyframes dash{to{stroke-dashoffset:-140}}
 .node{animation:nodePulse 3s ease-in-out infinite}
 .node:nth-child(2n){animation-delay:-1.5s}
 @keyframes nodePulse{0%,100%{opacity:.5}50%{opacity:1}}
-.cloud-float{animation:float 8s ease-in-out infinite}
 .spin-slow{transform-origin:center;animation:spin 40s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+.photo-frame{position:relative;width:100%;aspect-ratio:4/5;border-radius:24px;overflow:hidden;z-index:1;
+  border:1px solid rgba(255,255,255,.35);background:linear-gradient(160deg,#262626,#0a0a0a);
+  box-shadow:0 0 0 6px rgba(255,255,255,.06),0 30px 80px -20px rgba(255,255,255,.25)}
+.photo-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s ease}
+.photo-frame:hover img{transform:scale(1.05)}
+.photo-fallback{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--mono);font-size:5rem;font-weight:800;color:rgba(255,255,255,.45)}
+.photo-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.55),transparent 45%);pointer-events:none}
+.float-tag{position:absolute;z-index:2;padding:9px 14px;border-radius:12px;font-size:.8rem;font-family:var(--mono);
+  background:rgba(10,10,10,.75);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(10px);color:var(--accent);
+  animation:float 7s ease-in-out infinite;box-shadow:0 10px 30px -10px rgba(255,255,255,.2)}
+.ft1{top:6%;left:-8%}
+.ft2{bottom:14%;right:-8%;animation-delay:-3s}
+.ft3{top:52%;left:-12%;animation-delay:-5s}
+.ft4{top:22%;right:-10%;animation-delay:-1s}
+.ft5{top:44%;right:-14%;animation-delay:-4s}
+.ft6{bottom:2%;left:8%;animation-delay:-2s}
+
 .scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.75rem;
   font-family:var(--mono);letter-spacing:.2em;display:flex;flex-direction:column;align-items:center;gap:8px}
 .scroll-cue::after{content:"";width:1px;height:40px;background:linear-gradient(var(--green),transparent);animation:cue 2s infinite}
@@ -152,25 +144,35 @@ h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:14px}
 .focus-item h3{font-size:1rem;margin-bottom:4px}
 .focus-item p{color:var(--muted);font-size:.92rem}
 
+/* ============ GALLERY ============ */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.shot{position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;border:1px solid var(--glass-border);
+  background:linear-gradient(135deg,#1c1c1c,#0a0a0a);isolation:isolate}
+.shot:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease,filter .5s}
+.shot:hover img{transform:scale(1.08);filter:saturate(1.15)}
+.shot-cap{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 16px;
+  background:linear-gradient(to top,rgba(10,10,10,.92),transparent);font-size:.9rem;z-index:1}
+.shot-cap small{display:block;font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+.shot-cap span{color:var(--text)}
+.shot::before{content:"";position:absolute;inset:0;border-radius:18px;border:1px solid transparent;transition:border-color .4s;z-index:2;pointer-events:none}
+.shot:hover::before{border-color:rgba(255,255,255,.5)}
+
 /* ============ SKILLS ============ */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 .skill-cat h3{font-size:1.05rem;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .skill-cat h3::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--grad)}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{
-  display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:10px;
-  font-size:.88rem;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);
-  transition:all .3s;cursor:default;
-}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:10px;font-size:.88rem;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);transition:all .3s;cursor:default}
 .chip i{width:8px;height:8px;border-radius:50%;background:var(--green)}
-.chip:hover{background:rgba(22,101,52,.25);border-color:var(--deep-green);transform:translateY(-2px)}
+.chip:hover{background:rgba(255,255,255,.14);border-color:var(--deep-green);transform:translateY(-2px)}
 .chip.learning i{background:var(--deep-green);border:1px solid var(--accent)}
 .chip.learning{opacity:.85;border-style:dashed}
 
 /* ============ EXPERIENCE TIMELINE ============ */
 .timeline{position:relative;max-width:860px;margin-inline:auto;padding-left:34px}
-.timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;
-  background:linear-gradient(var(--green),var(--deep-green),transparent);border-radius:2px}
+.timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(var(--green),var(--deep-green),transparent);border-radius:2px}
 .tl-item{position:relative;margin-bottom:34px;padding:28px}
 .tl-item::before{content:"";position:absolute;left:-34px;top:36px;width:16px;height:16px;border-radius:50%;
   background:var(--bg);border:2px solid var(--green);box-shadow:0 0 14px var(--green)}
@@ -187,16 +189,18 @@ h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:14px}
 /* ============ PROJECTS ============ */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px}
 .project{display:flex;flex-direction:column;padding:0;overflow:hidden}
-.project-visual{height:170px;position:relative;display:grid;place-items:center;
-  background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(22,101,52,.3));border-bottom:1px solid var(--glass-border)}
-.project-visual svg{width:70%;height:70%;opacity:.9}
+.project-visual{height:190px;position:relative;overflow:hidden;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(156,163,175,.2));border-bottom:1px solid var(--glass-border)}
+.project-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.project:hover .project-visual img{transform:scale(1.06)}
+.project-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.7),transparent 60%)}
+.project-visual svg{position:relative;z-index:1;width:55%;height:55%;opacity:.85}
 .project-body{padding:24px;display:flex;flex-direction:column;flex:1}
 .project-num{font-family:var(--mono);font-size:.78rem;color:var(--accent);margin-bottom:6px}
 .project h3{font-size:1.15rem;margin-bottom:10px}
 .project p{color:var(--muted);font-size:.93rem;margin-bottom:18px;flex:1}
 .badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-.badge{font-family:var(--mono);font-size:.72rem;padding:4px 10px;border-radius:6px;
-  background:var(--glass);border:1px solid var(--glass-border);color:var(--muted)}
+.badge{font-family:var(--mono);font-size:.72rem;padding:4px 10px;border-radius:6px;background:var(--glass);border:1px solid var(--glass-border);color:var(--muted)}
 .project-links{display:flex;gap:10px}
 .project-links .btn{padding:9px 16px;font-size:.84rem}
 
@@ -211,7 +215,7 @@ h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:14px}
 
 /* ============ RESUME ============ */
 .resume-box{padding:50px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;
-  background:linear-gradient(135deg,rgba(34,197,94,.08),rgba(22,101,52,.14))}
+  background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(156,163,175,.1))}
 .resume-box p{color:var(--muted);margin-bottom:12px}
 .resume-actions{display:grid;gap:14px}
 .resume-actions .btn{justify-content:center}
@@ -229,11 +233,9 @@ h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:14px}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .field{display:flex;flex-direction:column;gap:8px}
 .field label{font-size:.85rem;color:var(--muted)}
-.field input,.field textarea{
-  background:rgba(10,10,10,.7);border:1px solid var(--glass-border);border-radius:12px;
-  padding:13px 16px;color:var(--text);font:inherit;outline:none;transition:all .3s;
-}
-.field input:focus,.field textarea:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(34,197,94,.15)}
+.field input,.field textarea{background:rgba(10,10,10,.7);border:1px solid var(--glass-border);border-radius:12px;
+  padding:13px 16px;color:var(--text);font:inherit;outline:none;transition:all .3s}
+.field input:focus,.field textarea:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(255,255,255,.12)}
 .field textarea{resize:vertical;min-height:130px}
 .form-status{font-size:.9rem;color:var(--muted);min-height:1.2em}
 
@@ -251,14 +253,15 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
 /* ============ RESPONSIVE ============ */
 @media (max-width:980px){
   .hero-grid,.about-grid,.contact-grid,.resume-box{grid-template-columns:1fr}
-  .hero-visual{max-width:380px;order:-1}
+  .hero-visual{max-width:360px;min-height:0;order:-1}
+  .ft1{left:-4%}.ft2{right:-4%}.ft3{left:-6%}.ft4{right:-4%}.ft5{right:-4%}.ft6{left:0}
   section{padding:85px 0}
+  .shot:first-child{grid-column:span 1;grid-row:span 1;aspect-ratio:4/3}
 }
 @media (max-width:820px){
   .menu-toggle{display:block}
-  .nav-links{position:fixed;inset:0 0 auto 0;top:70px;flex-direction:column;gap:0;
-    background:rgba(10,10,10,.97);backdrop-filter:blur(16px);padding:20px 0;
-    transform:translateY(-120%);transition:transform .4s ease;border-bottom:1px solid var(--glass-border)}
+  .nav-links{position:fixed;inset:0 0 auto 0;top:70px;flex-direction:column;gap:0;background:rgba(10,10,10,.97);
+    backdrop-filter:blur(16px);padding:20px 0;transform:translateY(-120%);transition:transform .4s ease;border-bottom:1px solid var(--glass-border)}
   .nav-links.open{transform:none}
   .nav-links li{width:100%;text-align:center}
   .nav-links a{display:block;padding:14px}
@@ -278,6 +281,8 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
   .hero-ctas .btn{width:100%;justify-content:center}
   .form{padding:24px}
   .card{padding:22px}
+  .gallery-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .shot-cap{padding:30px 12px 12px;font-size:.8rem}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -308,7 +313,7 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a href="https://github.com/muthu-shanmugampillai/profile.git/resume.pdf" download class="btn btn-primary nav-resume">Download Resume</a>
+      <a href="resume.pdf" download class="btn btn-primary nav-resume">Download Resume</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -328,7 +333,7 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
       <p class="hero-headline reveal reveal-d1">Building Scalable Cloud Infrastructure. <span class="grad-text">Automating Everything.</span> Keeping Systems Reliable.</p>
       <p class="hero-intro reveal reveal-d2">I'm a DevOps and Cloud Engineer passionate about cloud infrastructure, automation, CI/CD pipelines, containerization, monitoring, and building reliable production environments.</p>
       <div class="hero-ctas reveal reveal-d2">
-        <a href="https://github.com/muthu-shanmugampillai/profile.git/resume.pdf" download class="btn btn-primary">Download My Resume</a>
+        <a href="resume.pdf" download class="btn btn-primary">Download My Resume</a>
         <a href="#projects" class="btn btn-ghost">View My Projects</a>
       </div>
       <div class="socials reveal reveal-d3">
@@ -344,62 +349,36 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
       </div>
     </div>
 
-    <!-- Animated cloud / network illustration -->
-    <div class="hero-visual reveal reveal-d2" aria-hidden="true">
-      <svg viewBox="0 0 400 400">
+    <!-- Portrait with animated cloud network behind it -->
+    <div class="hero-visual reveal reveal-d2">
+      <svg viewBox="0 0 400 400" aria-hidden="true">
         <defs>
           <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#166534"/>
+            <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#9ca3af"/>
           </linearGradient>
-          <radialGradient id="glow">
-            <stop offset="0" stop-color="#22c55e" stop-opacity=".3"/><stop offset="1" stop-color="#22c55e" stop-opacity="0"/>
-          </radialGradient>
         </defs>
-        <circle cx="200" cy="200" r="180" fill="url(#glow)"/>
-        <g class="spin-slow" fill="none" stroke="rgba(34,197,94,.25)" stroke-width="1">
-          <circle cx="200" cy="200" r="150" stroke-dasharray="4 10"/>
-          <circle cx="200" cy="200" r="110" stroke-dasharray="2 8"/>
+        <g class="spin-slow" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1">
+          <circle cx="200" cy="200" r="180" stroke-dasharray="4 10"/>
+          <circle cx="200" cy="200" r="140" stroke-dasharray="2 8"/>
         </g>
-        <g stroke="url(#g1)" stroke-width="1.5" class="node-line" fill="none" opacity=".7">
-          <line x1="200" y1="200" x2="90" y2="110"/>
-          <line x1="200" y1="200" x2="320" y2="120"/>
-          <line x1="200" y1="200" x2="330" y2="280"/>
-          <line x1="200" y1="200" x2="100" y2="290"/>
-          <line x1="200" y1="200" x2="200" y2="60"/>
+        <g stroke="url(#g1)" stroke-width="1.5" class="node-line" fill="none">
+          <line x1="200" y1="200" x2="40" y2="90"/>
+          <line x1="200" y1="200" x2="360" y2="110"/>
+          <line x1="200" y1="200" x2="370" y2="300"/>
+          <line x1="200" y1="200" x2="40" y2="310"/>
         </g>
-        <g fill="#22c55e">
-          <circle class="node" cx="90" cy="110" r="6"/>
-          <circle class="node" cx="320" cy="120" r="6"/>
-          <circle class="node" cx="330" cy="280" r="6"/>
-          <circle class="node" cx="100" cy="290" r="6"/>
-          <circle class="node" cx="200" cy="60" r="6"/>
+        <g fill="#ffffff">
+          <circle class="node" cx="40" cy="90" r="6"/>
+          <circle class="node" cx="360" cy="110" r="6"/>
+          <circle class="node" cx="370" cy="300" r="6"/>
+          <circle class="node" cx="40" cy="310" r="6"/>
         </g>
-        <g class="cloud-float">
-          <rect x="140" y="170" width="120" height="60" rx="30" fill="rgba(10,10,10,.95)" stroke="url(#g1)" stroke-width="2"/>
-          <circle cx="170" cy="170" r="24" fill="rgba(10,10,10,.95)" stroke="url(#g1)" stroke-width="2"/>
-          <circle cx="215" cy="160" r="30" fill="rgba(10,10,10,.95)" stroke="url(#g1)" stroke-width="2"/>
-          <text x="200" y="208" text-anchor="middle" fill="#f5f5f5" font-family="monospace" font-size="14" font-weight="700">AWS</text>
-        </g>
-        <g font-family="monospace" font-size="11" fill="#9a9a9a">
-          <rect x="40" y="60" width="90" height="28" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)"/>
-          <text x="55" y="78">Terraform</text>
-          <rect x="270" y="320" width="90" height="28" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)"/>
-          <text x="285" y="338">Kubernetes</text>
-          <rect x="260" y="40" width="90" height="28" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)"/>
-          <text x="275" y="58">CI/CD</text>
-          <rect x="30" y="310" width="90" height="28" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)"/>
-          <text x="45" y="328">Prometheus</text>
-        </g>
-        <circle r="4" fill="#4ade80">
-          <animateMotion dur="4s" repeatCount="indefinite" path="M200,200 L90,110"/>
-        </circle>
-        <circle r="4" fill="#166534">
-          <animateMotion dur="5s" repeatCount="indefinite" path="M200,200 L330,280"/>
-        </circle>
-        <circle r="4" fill="#4ade80">
-          <animateMotion dur="3.5s" repeatCount="indefinite" path="M200,200 L200,60"/>
-        </circle>
       </svg>
+
+      <div class="photo-frame">
+        <img src="images/profile.jpeg" alt="Muthu S S, DevOps and Cloud Engineer" onerror="this.style.display='none'">
+        <div class="photo-fallback" aria-hidden="true"></div>
+      </div>
     </div>
   </div>
   <a href="#about" class="scroll-cue" aria-label="Scroll down">SCROLL</a>
@@ -433,6 +412,7 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
     </div>
   </div>
 </section>
+
 
 <!-- ============ SKILLS ============ -->
 <section id="skills">
@@ -512,7 +492,7 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
   <div class="container">
     <span class="eyebrow reveal">03 — Experience</span>
     <h2 class="reveal">Professional <span class="grad-text">journey</span></h2>
-    <p class="section-sub reveal">Most recent first. Remaining placeholders are highlighted in amber.</p>
+    <p class="section-sub reveal">Most recent first.</p>
     <div class="timeline">
 
       <article class="glass tl-item current reveal">
@@ -587,12 +567,13 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
   <div class="container">
     <span class="eyebrow reveal">04 — Projects</span>
     <h2 class="reveal">Selected <span class="grad-text">work</span></h2>
-    <p class="section-sub reveal">Editable placeholders. Replace the title, description, technologies, and links with your real projects.</p>
+    <p class="section-sub reveal">Replace the title, description, technologies, links, and images (images/project-1.jpg to project-6.jpg) with your real projects.</p>
     <div class="projects-grid">
 
       <article class="glass card project reveal">
         <div class="project-visual">
-          <svg viewBox="0 0 200 120"><rect x="10" y="40" width="50" height="40" rx="8" fill="none" stroke="#22c55e"/><rect x="140" y="40" width="50" height="40" rx="8" fill="none" stroke="#166534"/><path d="M60 60 H140" stroke="#4ade80" stroke-dasharray="4 4"/><text x="35" y="66" font-size="10" fill="#f5f5f5" text-anchor="middle">TF</text><text x="165" y="66" font-size="10" fill="#f5f5f5" text-anchor="middle">AWS</text></svg>
+          <img src="images/project-1.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <svg viewBox="0 0 200 120"><rect x="10" y="40" width="50" height="40" rx="8" fill="none" stroke="#ffffff"/><rect x="140" y="40" width="50" height="40" rx="8" fill="none" stroke="#9ca3af"/><path d="M60 60 H140" stroke="#e5e5e5" stroke-dasharray="4 4"/><text x="35" y="66" font-size="10" fill="#f5f5f5" text-anchor="middle">TF</text><text x="165" y="66" font-size="10" fill="#f5f5f5" text-anchor="middle">AWS</text></svg>
         </div>
         <div class="project-body">
           <span class="project-num">PROJECT 01</span>
@@ -608,7 +589,8 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
 
       <article class="glass card project reveal reveal-d1">
         <div class="project-visual">
-          <svg viewBox="0 0 200 120"><path d="M20 60 H60 M80 60 H120 M140 60 H180" stroke="#22c55e" stroke-width="2"/><rect x="55" y="45" width="30" height="30" rx="6" fill="none" stroke="#166534"/><rect x="115" y="45" width="30" height="30" rx="6" fill="none" stroke="#166534"/><text x="70" y="64" font-size="9" fill="#f5f5f5" text-anchor="middle">BUILD</text><text x="130" y="64" font-size="9" fill="#f5f5f5" text-anchor="middle">DEPLOY</text></svg>
+          <img src="images/project-2.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <svg viewBox="0 0 200 120"><path d="M20 60 H60 M80 60 H120 M140 60 H180" stroke="#ffffff" stroke-width="2"/><rect x="55" y="45" width="30" height="30" rx="6" fill="none" stroke="#9ca3af"/><rect x="115" y="45" width="30" height="30" rx="6" fill="none" stroke="#9ca3af"/><text x="70" y="64" font-size="9" fill="#f5f5f5" text-anchor="middle">BUILD</text><text x="130" y="64" font-size="9" fill="#f5f5f5" text-anchor="middle">DEPLOY</text></svg>
         </div>
         <div class="project-body">
           <span class="project-num">PROJECT 02</span>
@@ -624,7 +606,8 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
 
       <article class="glass card project reveal">
         <div class="project-visual">
-          <svg viewBox="0 0 200 120"><circle cx="100" cy="60" r="34" fill="none" stroke="#22c55e" stroke-dasharray="6 6"/><circle cx="100" cy="60" r="8" fill="#166534"/><circle cx="60" cy="40" r="6" fill="#4ade80"/><circle cx="140" cy="40" r="6" fill="#4ade80"/><circle cx="100" cy="95" r="6" fill="#4ade80"/></svg>
+          <img src="images/project-3.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <svg viewBox="0 0 200 120"><circle cx="100" cy="60" r="34" fill="none" stroke="#ffffff" stroke-dasharray="6 6"/><circle cx="100" cy="60" r="8" fill="#9ca3af"/><circle cx="60" cy="40" r="6" fill="#e5e5e5"/><circle cx="140" cy="40" r="6" fill="#e5e5e5"/><circle cx="100" cy="95" r="6" fill="#e5e5e5"/></svg>
         </div>
         <div class="project-body">
           <span class="project-num">PROJECT 03</span>
@@ -640,7 +623,8 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
 
       <article class="glass card project reveal reveal-d1">
         <div class="project-visual">
-          <svg viewBox="0 0 200 120"><rect x="80" y="10" width="40" height="22" rx="5" fill="none" stroke="#166534"/><rect x="30" y="85" width="40" height="22" rx="5" fill="none" stroke="#22c55e"/><rect x="130" y="85" width="40" height="22" rx="5" fill="none" stroke="#22c55e"/><path d="M100 32 V55 M100 55 L50 85 M100 55 L150 85" stroke="#4ade80" fill="none"/></svg>
+          <img src="images/project-4.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <svg viewBox="0 0 200 120"><rect x="80" y="10" width="40" height="22" rx="5" fill="none" stroke="#9ca3af"/><rect x="30" y="85" width="40" height="22" rx="5" fill="none" stroke="#ffffff"/><rect x="130" y="85" width="40" height="22" rx="5" fill="none" stroke="#ffffff"/><path d="M100 32 V55 M100 55 L50 85 M100 55 L150 85" stroke="#e5e5e5" fill="none"/></svg>
         </div>
         <div class="project-body">
           <span class="project-num">PROJECT 04</span>
@@ -656,7 +640,8 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
 
       <article class="glass card project reveal">
         <div class="project-visual">
-          <svg viewBox="0 0 200 120"><polyline points="10,90 50,60 90,70 130,30 170,45" fill="none" stroke="#4ade80" stroke-width="2"/><rect x="10" y="10" width="180" height="100" rx="8" fill="none" stroke="rgba(255,255,255,.15)"/></svg>
+          <img src="images/project-5.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <svg viewBox="0 0 200 120"><polyline points="10,90 50,60 90,70 130,30 170,45" fill="none" stroke="#e5e5e5" stroke-width="2"/><rect x="10" y="10" width="180" height="100" rx="8" fill="none" stroke="rgba(255,255,255,.15)"/></svg>
         </div>
         <div class="project-body">
           <span class="project-num">PROJECT 05</span>
@@ -672,10 +657,11 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
 
       <article class="glass card project reveal reveal-d1">
         <div class="project-visual">
-          <svg viewBox="0 0 200 120"><path d="M100 15 L165 40 V80 L100 105 L35 80 V40 Z" fill="none" stroke="#22c55e"/><path d="M100 15 V105 M35 40 L165 80 M165 40 L35 80" stroke="rgba(22,101,52,.8)"/></svg>
+          <img src="images/project-6.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <svg viewBox="0 0 200 120"><path d="M100 15 L165 40 V80 L100 105 L35 80 V40 Z" fill="none" stroke="#ffffff"/><path d="M100 15 V105 M35 40 L165 80 M165 40 L35 80" stroke="rgba(156,163,175,.8)"/></svg>
         </div>
         <div class="project-body">
-          <span class="project-num">PROJECT 06</span>
+          <span class="project-num">PROJECT 0</span>
           <h3>AWS Cloud Infrastructure Management</h3>
           <p><span class="placeholder">Describe the environments managed, operational practices, and backup or security measures.</span></p>
           <div class="badges"><span class="badge">AWS</span><span class="badge">CloudWatch</span><span class="badge">AWS Backup</span><span class="badge">IAM</span></div>
@@ -699,23 +685,23 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
     <div class="cert-grid">
       <article class="glass cert reveal">
         <div class="cert-badge">🏅</div>
-        <h3><span class="placeholder">Certification Name</span></h3>
-        <div class="meta">Issuing organization: <span class="placeholder">Issuer</span></div>
-        <div class="meta">Completed: <span class="placeholder">Month Year</span></div>
+        <h3><span class="placeholder">AWS Certified DevOps Engineer – Professional</span></h3>
+        <div class="meta">Issuing organization: AWS <span class="placeholder">Issuer</span></div>
+        <div class="meta">In Progress<span class="placeholder">Month Year</span></div>
         <a href="#">Verify credential →</a>
       </article>
       <article class="glass cert reveal reveal-d1">
         <div class="cert-badge">🏅</div>
-        <h3><span class="placeholder">Certification Name</span></h3>
-        <div class="meta">Issuing organization: <span class="placeholder">Issuer</span></div>
-        <div class="meta">Completed: <span class="placeholder">Month Year</span></div>
+        <h3><span class="placeholder">Certified Kubernetes Administrator (CKA)</span></h3>
+        <div class="meta">Issuing organization: Google <span class="placeholder">Issuer</span></div>
+        <div class="meta">In Progress <span class="placeholder">Month Year</span></div>
         <a href="#">Verify credential →</a>
       </article>
       <article class="glass cert reveal reveal-d2">
         <div class="cert-badge">🏅</div>
-        <h3><span class="placeholder">Certification Name</span></h3>
-        <div class="meta">Issuing organization: <span class="placeholder">Issuer</span></div>
-        <div class="meta">Completed: <span class="placeholder">Month Year</span></div>
+        <h3><span class="placeholder">AWS Certified Solutions Architect – Associate</span></h3>
+        <div class="meta">Issuing organization: AWS <span class="placeholder">Issuer</span></div>
+        <div class="meta">In Progress<span class="placeholder">Month Year</span></div>
         <a href="#">Verify credential →</a>
       </article>
     </div>
@@ -730,11 +716,11 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
         <span class="eyebrow">06 — Resume</span>
         <h2>Get the full <span class="grad-text">picture</span></h2>
         <p>View my resume in a new tab or download a PDF copy. No login required.</p>
-        <p class="resume-note">To update: replace <code>resume.pdf</code> in the site's root folder with your new file, keeping the same name. No other changes needed.</p>
+        <p class="resume-note">To update: replace <code>resume.pdf</code> in the site's root folder with your new file, keeping the same name.</p>
       </div>
       <div class="resume-actions">
-        <a href="https://github.com/muthu-shanmugampillai/profile.git/resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">View Resume</a>
-        <a href="https://github.com/muthu-shanmugampillai/profile.git/resume.pdf" download class="btn btn-primary">Download PDF</a>
+        <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">View Resume</a>
+        <a href="resume.pdf" download class="btn btn-primary">Download PDF</a>
       </div>
     </div>
   </div>
@@ -766,11 +752,7 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
         </div>
       </div>
 
-      <!--
-        CONTACT FORM: This form needs a submission service to work.
-        Replace YOUR_FORM_ID with a Formspree (or Netlify Forms / similar) endpoint.
-        Example: https://formspree.io/f/abcd1234
-      -->
+      <!-- Replace YOUR_FORM_ID with a Formspree (or similar) endpoint to activate the form -->
       <form class="glass form reveal reveal-d1" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="field-row">
           <div class="field">
@@ -809,10 +791,8 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
 <button class="icon-btn to-top" id="toTop" aria-label="Back to top">↑</button>
 
 <script>
-  // Year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Sticky nav shadow + back-to-top
   const nav = document.getElementById('nav');
   const toTop = document.getElementById('toTop');
   const links = document.querySelectorAll('.nav-links a');
@@ -822,7 +802,6 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
   }, { passive: true });
   toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // Active nav link on scroll
   const sections = document.querySelectorAll('main section[id]');
   const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -833,7 +812,6 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
   }, { rootMargin: '-45% 0px -50% 0px' });
   sections.forEach(s => sectionObserver.observe(s));
 
-  // Mobile menu
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   menuToggle.addEventListener('click', () => {
@@ -846,7 +824,6 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
     menuToggle.classList.remove('open');
   }));
 
-  // Scroll reveal
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -857,16 +834,14 @@ footer{padding:40px 0;border-top:1px solid var(--glass-border);color:var(--muted
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // Contact form feedback (requires a real endpoint in the action attribute)
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
   form.addEventListener('submit', async (e) => {
+    e.preventDefault();
     if (form.action.includes('YOUR_FORM_ID')) {
-      e.preventDefault();
       status.textContent = 'Form not connected yet. Please email me directly.';
       return;
     }
-    e.preventDefault();
     status.textContent = 'Sending...';
     try {
       const res = await fetch(form.action, {
